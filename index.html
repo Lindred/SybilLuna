@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sybil Luna — Dominatrix · Performer · Devotional Artist</title>
+    <meta name="description" content="Sybil Luna. Dominatrix, performer, and devotional artist. Private sessions, custom content, and professional domination.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        ::selection {
+            background: rgba(139, 32, 48, 0.4);
+            color: #d4c8c0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0808;
+            color: #d4c8c0;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Background atmosphere */
+        .atmosphere {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse at 15% 50%, rgba(139,32,48,0.12) 0%, transparent 55%),
+                radial-gradient(ellipse at 85% 30%, rgba(40,60,100,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 90%, rgba(80,20,60,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(139,32,48,0.05) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Film grain */
+        .grain {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            opacity: 0.04;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 28px 44px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(10,8,8,0.95) 0%, rgba(10,8,8,0.6) 60%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8b2030;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #5a4a4a;
+            text-decoration: none;
+            transition: color 0.4s;
+        }
+
+        .nav-links a:hover {
+            color: #8b2030;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-circle {
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(139,32,48,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 56px;
+            position: relative;
+            animation: slowRotate 80s linear infinite;
+        }
+
+        .hero-circle-inner {
+            width: 130px;
+            height: 130px;
+            border: 1px solid rgba(74,122,155,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-circle-inner span {
+            font-size: 32px;
+            color: #8b2030;
+            opacity: 0.5;
+        }
+
+        .hero-dot-1 {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            background: #8b2030;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .hero-dot-2 {
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+            width: 3px;
+            height: 3px;
+            background: #4a7a9b;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+
+        h1 {
+            font-size: clamp(52px, 9vw, 112px);
+            font-weight: 300;
+            letter-spacing: 14px;
+            text-transform: uppercase;
+            color: #d4c8c0;
+            line-height: 0.85;
+        }
+
+        .hero-line {
+            width: 100px;
+            height: 1px;
+            margin: 36px auto;
+            background: linear-gradient(to right, transparent, #8b2030, rgba(74,122,155,0.5), transparent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(11px, 1.5vw, 13px);
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            color: #5a4a4a;
+            font-weight: 400;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 48px;
+            animation: pulse 3s ease-in-out infinite;
+            font-size: 18px;
+            color: #3a2828;
+        }
+
+        /* About */
+        .about {
+            padding: 140px 40px;
+            max-width: 680px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 140px;
+            bottom: 80px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, rgba(139,32,48,0.2), transparent);
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8b2030;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+
+        .about p:first-of-type {
+            font-size: 22px;
+            line-height: 2;
+            color: #b8a0a0;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        .about p:nth-of-type(2) {
+            font-size: 18px;
+            line-height: 2;
+            color: #7a6a6a;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+
+        .about p:nth-of-type(3) {
+            font-size: 16px;
+            line-height: 2;
+            color: #5a4a4a;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .about-line {
+            width: 40px;
+            height: 1px;
+            background: #8b2030;
+            margin-top: 56px;
+            opacity: 0.25;
+        }
+
+        /* Offerings */
+        .offerings {
+            padding: 80px 40px 140px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .offerings-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .offerings-header h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: #d4c8c0;
+            text-transform: uppercase;
+        }
+
+        .offerings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(139,32,48,0.06);
+        }
+
+        .offering-card {
+            background: #0a0808;
+            padding: 56px 36px;
+            cursor: default;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offering-card:hover {
+            background: rgba(139,32,48,0.04);
+        }
+
+        .offering-card .accent-line {
+            position: absolute;
+            top: 0;
+            left: 20%;
+            right: 20%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #8b2030, transparent);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .offering-card:hover .accent-line {
+            opacity: 1;
+        }
+
+        .offering-icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 28px;
+            opacity: 0.35;
+        }
+
+        .offering-card h3 {
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #d4c8c0;
+            margin-bottom: 6px;
+        }
+
+        .offering-subtitle {
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8b2030;
+            opacity: 0.7;
+        }
+
+        .offering-subtitle.blue {
+            color: #4a7a9b;
+        }
+
+        .offering-card p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #5a4a4a;
+            margin-top: 24px;
+        }
+
+        /* Quote */
+        .quote-section {
+            padding: 100px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .quote-inner {
+            max-width: 550px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .quote-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(74,122,155,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .quote-symbol {
+            font-size: 48px;
+            color: #8b2030;
+            opacity: 0.12;
+            display: block;
+            margin-bottom: 24px;
+        }
+
+        .quote-section blockquote {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 2;
+            color: #7a6a6a;
+            border: none;
+            position: relative;
+        }
+
+        /* Application */
+        .apply-section {
+            padding: 80px 40px 140px;
+            max-width: 620px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .apply-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .apply-header h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 300;
+            letter-spacing: 6px;
+            color: #d4c8c0;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .apply-header p {
+            font-size: 14px;
+            color: #4a3a3a;
+            line-height: 1.8;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .apply-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .apply-form input,
+        .apply-form select,
+        .apply-form textarea {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(139,32,48,0.15);
+            border-radius: 0;
+            padding: 18px 20px;
+            color: #d4c8c0;
+            font-size: 15px;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            outline: none;
+            transition: border 0.4s;
+            width: 100%;
+        }
+
+        .apply-form input:focus,
+        .apply-form select:focus,
+        .apply-form textarea:focus {
+            border-color: rgba(139,32,48,0.4);
+        }
+
+        .apply-form input::placeholder,
+        .apply-form textarea::placeholder {
+            color: #3a2828;
+            font-style: italic;
+        }
+
+        .apply-form select {
+            appearance: none;
+            cursor: pointer;
+            color: #3a2828;
+        }
+
+        .apply-form select.has-value {
+            color: #d4c8c0;
+        }
+
+        .apply-form select option {
+            background: #110a0a;
+        }
+
+        .apply-form textarea {
+            resize: vertical;
+        }
+
+        .apply-form button {
+            background: transparent;
+            border: 1px solid rgba(139,32,48,0.3);
+            border-radius: 0;
+            padding: 20px 40px;
+            color: #8b2030;
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            margin-top: 12px;
+        }
+
+        .apply-form button:hover {
+            background: rgba(139,32,48,0.1);
+            border-color: rgba(139,32,48,0.5);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(139,32,48,0.08);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-name {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #2a1818;
+            margin-bottom: 12px;
+        }
+
+        .footer-disclaimer {
+            font-size: 11px;
+            color: #1a1212;
+            font-style: italic;
+        }
+
+        /* Animations */
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            nav {
+                padding: 16px 20px;
+            }
+            .about, .offerings, .quote-section, .apply-section {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .offerings-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="atmosphere"></div>
+<div class="grain"></div>
+
+<!-- Navigation -->
+<nav>
+    <div class="nav-logo">Sybil Luna</div>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#apply">Apply</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-circle">
+        <div class="hero-circle-inner">
+            <span>☽</span>
+        </div>
+        <div class="hero-dot-1"></div>
+        <div class="hero-dot-2"></div>
+    </div>
+    <h1>Sybil<br>Luna</h1>
+    <div class="hero-line"></div>
+    <p class="hero-subtitle">Dominatrix · Performer · Devotional artist</p>
+    <div class="scroll-indicator">↓</div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+    <div class="section-label">About</div>
+    <p>I am a sound artist, experimental composer, and professional Dominatrix. I work where devotion meets depravity — where the sacred and the profane are not opposites but lovers.</p>
+    <p>I am sharp, intuitive, and deliberate. I read you before you speak. I do not rush. I do not perform. What I offer is presence — precise, undivided, and unrelenting. I will see you more clearly than you have been seen. Whether that terrifies or liberates you is your business. It will likely be both.</p>
+    <p>I do not take everyone. I am selective with my time and energy. If you approach me with respect, honesty, and genuine curiosity, we will build something extraordinary together.</p>
+    <div class="about-line"></div>
+</section>
+
+<!-- Offerings -->
+<section class="offerings" id="experience">
+    <div class="offerings-header">
+        <div class="section-label">Experience</div>
+        <h2>Offerings</h2>
+    </div>
+    <div class="offerings-grid">
+        <div class="offering-card">
+            <div class="accent-line"></div>
+            <span class="offering-icon">☽</span>
+            <h3>Private Sessions</h3>
+            <span class="offering-subtitle blue">Intimacy on my terms</span>
+            <p>One-on-one virtual sessions crafted around your desires and my direction. I set the pace. I control the frame. You arrive, surrender, and leave altered. Every session is singular — I do not repeat myself.</p>
+        </div>
+        <div class="offering-card">
+            <div class="accent-line"></div>
+            <span class="offering-icon">✧</span>
+            <h3>Custom Content</h3>
+            <span class="offering-subtitle">Made to haunt you</span>
+            <p>Bespoke clips, audio, and visual content tailored to your obsessions. I take your fantasy and filter it through my aesthetic — what returns will be more precise and more devastating than what you imagined.</p>
+        </div>
+        <div class="offering-card">
+            <div class="accent-line"></div>
+            <span class="offering-icon">⛧</span>
+            <h3>Domination</h3>
+            <span class="offering-subtitle">Devotion as discipline</span>
+            <p>Professional domination as ritual practice. I am not interested in performance. I am interested in truth — yours, extracted with precision. Power exchange is sacred work and I treat it accordingly. This is not a game. It is a rite.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+    <div class="quote-inner">
+        <div class="quote-glow"></div>
+        <span class="quote-symbol">⛧</span>
+        <blockquote>
+            I do not want your performance.<br>
+            I want what lives underneath it.<br>
+            Come correct or do not come at all.
+        </blockquote>
+    </div>
+</section>
+
+<!-- Application -->
+<section class="apply-section" id="apply">
+    <div class="apply-header">
+        <div class="section-label">Begin</div>
+        <h2>Apply</h2>
+        <p>I review all applications personally. Thoughtful, honest applications are prioritized. Incomplete or low-effort submissions are discarded. All communication is confidential.</p>
+    </div>
+    <form class="apply-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Name or alias" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="service" id="service-select" onchange="this.classList.toggle('has-value', this.value !== '')">
+            <option value="">Which offering interests you?</option>
+            <option value="private">Private Sessions</option>
+            <option value="custom">Custom Content</option>
+            <option value="domination">Domination</option>
+        </select>
+        <textarea name="about" placeholder="Tell me about yourself — who you are, what draws you here" rows="3"></textarea>
+        <textarea name="seeking" placeholder="What are you seeking? Be specific." rows="3" required></textarea>
+        <button type="submit">Submit Application</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-name">Sybil Luna · MMXXVI</div>
+    <div class="footer-disclaimer">All interactions are confidential. 18+ only. I do not see everyone.</div>
+</footer>
+
+</body>
+</html>
