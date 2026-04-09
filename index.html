@@ -524,6 +524,52 @@
             50% { opacity: 0.5; }
         }
 
+        /* Photos */
+        .photo-block {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .photo-block img {
+            display: block;
+            width: 100%;
+            max-height: 90vh;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .photo-hero {
+            max-width: 480px;
+            margin: 0 auto 80px;
+        }
+
+        .photo-hero img {
+            max-height: 70vh;
+            object-position: center 20%;
+        }
+
+        .photo-full {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .photo-full img {
+            max-height: 85vh;
+            object-position: center top;
+        }
+
+        .photo-wide {
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .photo-wide img {
+            max-height: 60vh;
+            object-position: center 30%;
+            filter: brightness(0.85);
+        }
+
         /* Responsive */
         @media (max-width: 800px) {
             nav {
@@ -532,6 +578,12 @@
             .about, .offerings, .quote-section, .apply-section {
                 padding-left: 24px;
                 padding-right: 24px;
+            }
+            .photo-hero {
+                max-width: 100%;
+            }
+            .photo-full {
+                max-width: 100%;
             }
         }
 
@@ -575,6 +627,13 @@
     <div class="scroll-indicator">↓</div>
 </section>
 
+<!-- Hero Photo -->
+<div class="photo-block">
+    <div class="photo-hero">
+        <img src="images/photo-1.jpg" alt="Sybil Luna">
+    </div>
+</div>
+
 <!-- About -->
 <section class="about" id="about">
     <div class="section-label">About</div>
@@ -582,6 +641,13 @@
     <p>I do not take everyone. I am selective with my time and energy. If you approach me with respect, honesty, and genuine curiosity, we will build something extraordinary together.</p>
     <div class="about-line"></div>
 </section>
+
+<!-- After-About Photo -->
+<div class="photo-block">
+    <div class="photo-wide">
+        <img src="images/photo-3.jpg" alt="Sybil Luna">
+    </div>
+</div>
 
 <!-- Offerings -->
 <section class="offerings" id="experience">
@@ -621,6 +687,13 @@
         <span style="font-size: 56px; color: #8b2030; opacity: 0.15; display: block; position: relative;">⛧</span>
     </div>
 </section>
+
+<!-- Pre-Apply Photo -->
+<div class="photo-block">
+    <div class="photo-full">
+        <img src="images/photo-2.jpg" alt="Sybil Luna">
+    </div>
+</div>
 
 <!-- Application -->
 <section class="apply-section" id="apply">
