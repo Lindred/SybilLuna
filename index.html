@@ -10,6 +10,11 @@
     <meta property="og:description" content="Sybil Luna. Dominatrix and content creator. Private sessions, custom content, and domination.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sybilluna.com">
+    <meta property="og:image" content="https://sybilluna.com/pictures/landing.jpg">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="2560">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://sybilluna.com/pictures/landing.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -434,7 +439,10 @@
 
 <!-- DESKTOP HERO -->
 <section class="hero-desktop">
-    <img class="landing" src="pictures/landing.jpg" alt="Sybil Luna">
+    <picture>
+        <source srcset="pictures/landing.jpg" media="(min-width: 769px)">
+        <img class="landing" src="pictures/landing.jpg" alt="Sybil Luna">
+    </picture>
     <div class="hero-overlay">
         <h1>Sybil<br>Luna</h1>
         <div class="moon-wrap">
@@ -453,7 +461,10 @@
 
 <!-- MOBILE HERO -->
 <section class="hero-mobile">
-    <img class="landing" src="pictures/landing.jpg" alt="Sybil Luna">
+    <picture>
+        <source srcset="pictures/landing-mobile.jpg" media="(max-width: 768px)">
+        <img class="landing" src="pictures/landing.jpg" alt="Sybil Luna">
+    </picture>
     <div class="hero-overlay">
         <div class="moon-wrap">
             <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
