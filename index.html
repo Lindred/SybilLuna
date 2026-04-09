@@ -348,6 +348,33 @@
 
         .deco-section { padding: 40px 40px 0; text-align: center; position: relative; z-index: 2; }
 
+        .platforms {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+            gap: 14px; padding: 60px 40px;
+        }
+
+        .platforms-label {
+            font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+            color: #8b2030; opacity: 0.7; margin-bottom: 10px;
+        }
+
+        .platform-link {
+            display: block; width: 260px; padding: 16px 0;
+            text-align: center;
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
+            text-decoration: none; color: #a09090;
+            border: 1px solid rgba(139,32,48,0.2);
+            transition: all 0.4s ease;
+        }
+
+        .platform-link:hover {
+            color: #d4c8c0;
+            border-color: rgba(139,32,48,0.5);
+            background: rgba(139,32,48,0.06);
+        }
+
         .hero-small { position: relative; z-index: 2; display: flex; justify-content: center; padding: 40px; }
         .hero-small-inner { position: relative; width: 360px; }
         .hero-small-inner img {
@@ -525,6 +552,12 @@
         <span style="font-size: 56px; color: #8b2030; opacity: 0.15; display: block; position: relative;">⛧</span>
     </div>
 </section>
+
+<div class="platforms">
+    <div class="platforms-label">Find Me</div>
+    <a class="platform-link" href="https://www.loyalfans.com/sybilluna" target="_blank" rel="noopener">Loyalfans</a>
+    <a class="platform-link" href="https://throne.com/sybilluna" target="_blank" rel="noopener">Throne — Wishlist</a>
+</div>
 
 <div class="hero-small">
     <div class="hero-small-inner">
