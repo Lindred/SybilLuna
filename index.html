@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2072%2072'%3E%3Crect%20width='72'%20height='72'%20fill='%230a0808'/%3E%3Cpath%20d='M44%209C32%2011.5%2023%2022%2023%2036C23%2050%2032%2060.5%2044%2063C30%2063%2016%2051%2016%2036C16%2021%2030%209%2044%209Z'%20fill='%238b2030'/%3E%3C/svg%3E">
     <title>Sybil Luna — Dominatrix · Content Creator</title>
     <meta name="description" content="Sybil Luna. Professional dominatrix based in Los Angeles. In-person and online domination sessions plus custom content. Available in LA and touring select cities by request.">
     <meta name="keywords" content="Sybil Luna, dominatrix, professional dominatrix, prodomme, Los Angeles dominatrix, LA dominatrix, LA prodomme, Los Angeles BDSM, dominatrix Los Angeles, in-person domination, online domination, virtual domination, online session dominatrix, touring dominatrix, traveling dominatrix, dominatrix available by request, custom content, content creator, domination">
@@ -16,6 +17,31 @@
     <meta property="og:image:height" content="2560">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://sybilluna.com/pictures/landing.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Sybil Luna",
+      "description": "Professional dominatrix based in Los Angeles offering in-person and online domination sessions and custom content.",
+      "url": "https://sybilluna.com",
+      "image": "https://sybilluna.com/pictures/landing.jpg",
+      "areaServed": [
+        { "@type": "City", "name": "Los Angeles" },
+        { "@type": "Country", "name": "United States" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "makesOffer": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "In-Person Domination" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Online Domination" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Content" } }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -331,8 +357,9 @@
             background: rgba(139,32,48,0.06);
         }
         .offering-card {
+            display: block; text-decoration: none; color: inherit;
             background: #0a0808; padding: 56px 36px;
-            cursor: default; transition: all 0.6s ease;
+            cursor: pointer; transition: all 0.6s ease;
             position: relative; overflow: hidden;
         }
         .offering-card:hover { background: rgba(139,32,48,0.04); }
@@ -524,27 +551,27 @@
         <h2>Offerings</h2>
     </div>
     <div class="offerings-grid">
-        <div class="offering-card">
+        <a class="offering-card" href="#apply" data-service="in-person">
             <div class="accent-line"></div>
             <span class="offering-icon">⛧</span>
             <h3>In-Person Domination</h3>
             <span class="offering-subtitle">Los Angeles &amp; Touring</span>
             <p>Private, in-person sessions in Los Angeles and in select cities while I travel. Professional domination as ritual practice — power exchange is sacred work and I treat it accordingly.</p>
-        </div>
-        <div class="offering-card">
+        </a>
+        <a class="offering-card" href="#apply" data-service="online">
             <div class="accent-line"></div>
             <span class="offering-icon">☽</span>
             <h3>Online Domination</h3>
             <span class="offering-subtitle">Live &amp; Virtual</span>
             <p>Real-time domination over video, from anywhere in the world. One-on-one live sessions crafted around your desires and my direction.</p>
-        </div>
-        <div class="offering-card">
+        </a>
+        <a class="offering-card" href="#apply" data-service="custom">
             <div class="accent-line"></div>
             <span class="offering-icon">✧</span>
             <h3>Custom Content</h3>
             <span class="offering-subtitle">Made For You</span>
             <p>Bespoke clips, audio, and visual content created to your specifications — tailored to your obsessions.</p>
-        </div>
+        </a>
     </div>
 </section>
 
@@ -613,6 +640,21 @@
 
         document.getElementById('gate-exit').addEventListener('click', function() {
             window.location.href = 'https://www.google.com';
+        });
+    })();
+
+    // Pre-select the Apply dropdown when an offering card is clicked
+    (function() {
+        var select = document.getElementById('service-select');
+        var cards = document.querySelectorAll('.offering-card[data-service]');
+        cards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                var service = card.getAttribute('data-service');
+                if (select) {
+                    select.value = service;
+                    select.classList.add('has-value');
+                }
+            });
         });
     })();
 </script>
